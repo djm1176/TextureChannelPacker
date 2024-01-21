@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f8f8f8;
+	font-family: 'Roboto', sans-serif;
+}
+
+button:enabled {
+    background-color: #4285f4; /* Button background color (adjust as needed) */
+    color: #ffffff; /* Button text color (white) */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+button:disabled,
+button[disabled] {
+    background-color: #aaaaaa; /* Button background color (adjust as needed) */
+    color: #666666; /* Button text color (white) */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover:enabled {
+    background-color: #357ae8; /* Button background color on hover (adjust as needed) */
+}
+
+.container {
+    max-width: 800px; /* Adjust max-width as needed for your design */
+    width: 100%;
+	padding: 10px;
+}
+
+.card {
+    background-color: #ffffff; /* White card background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    padding: 20px;
+    text-align: center;
+	margin: 20px 0px;
+}
+
+.section {
+	margin: 20px;
+}
+
+.image-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.image-field {
+	display: flex;
+    border: 2px dashed #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+	justify-content: center;
+	align-items: center;
+    position: relative;
+}
+
+.image-uploadable {
+	cursor: pointer;
+}
+
+.image-field span {
+	margin: 0;
+	display: inline-block;
+	border-radius: 4px;
+	padding: 2px 4px;
+	color: white;
+}
+
+.image-field p .box-red {
+	background-color: #d33;
+}
+
+.image-field p .box-green {
+	background-color: #3d3;
+}
+
+.image-field p .box-blue {
+	background-color: #36d;
+}
+
+.image-field p .box-alpha {
+	background-color: #888;
+}
+
+.image-field img {
+    max-width: 100%;
+	max-height: 100%;
+    border-radius: 8px;
+}
+
+.image-uploadable:hover,
+.image-uploadable.drag-over {
+	border: 2px solid #4285f4;
+}
+
+/* Add responsive styles for different screen sizes */
+@media (max-width: 400px) {
+    .image-fields {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-field {
+        min-width: calc(100% - 40px);
+    }
+}
+
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    background-color: #f39c12; /* Yellow color */
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    top: 20px;
+    left: 10px;
+    z-index: 1;
+}
+
+.icon-circle {
+    position: absolute;
+    width: 24px; /* Adjust as needed */
+    height: 24px; /* Adjust as needed */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    border-radius: 50%;
+	/* border: 1px solid #888; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.warning-icon {
+    background-color: #f39c12;	
+	top: -12px;
+	left: -12px;
+}
+
+.remove-icon {
+	background-color: #f22b10;
+	top: -12px;
+	right: -12px;
+}
+
+.icon-svg {
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+	min-width: 100px;
+    background-color: #f39c12;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    top: 0px;
+    left: 30px;
+    z-index: 1;
+}
+
+.warning-icon:hover .tooltip {
+    visibility: visible;
+}
+
+#mappedCanvas {
+	display: none;
+}

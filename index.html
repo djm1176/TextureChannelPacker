@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <title>Your Utility Web App</title>
+</head>
+<body>
+    <div class="container">
+		<div class="card">
+			<h1>Texture Channel Packer</h1>
+			<p>The <b>Physically Based Rendering</b> pipeline of many game engines allow you to use multiple physically based greyscale textures. Since these materials are greyscale, rather than waste 3 RGB channels to convey intensity, we can combine 3 (and even a 4th into the alpha channel!) of these textures into a single RGBA image, saving on space.</p>
+			<p>At runtime, the game engine's shaders will decompose each channel into the original luminance values for each of these maps.</p>
+			<p>Use the tool below to upload up to 4 images to be combined into a single RGBA image. Currently, only the red channel from each image is mapped to one of the new 4 channels.</p>
+			<p><a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@14.0/manual/Mask-Map-and-Detail-Map.html">Unity's HDRP uses</a> <b>(R) Metallic</b>, <b>(G) Ambient Occlusion</b>, <b>(B) Detail</b>, and <b>(A) Smoothness</b> maps</p>
+			<p><a href="https://forums.unrealengine.com/t/what-is-an-ordp-texture/233081">Unreal Engine's Megascans</a> library uses <b>(R) Ambient Occlusion</b>, <b>(G) Roughness</b>, and <b>(B) Displacement</b> maps</p>
+		</div>
+        <div class="card">
+            <div class="image-fields section">
+				<div class="image-field image-uploadable" id="imageField1" ondrop="drop(event, this)" ondragover="allowDrop(event)" onclick="selectImage(this)">
+					<p>Drag and drop <span class="box-red">Red</span> channel here</p>
+				</div>
+				<div class="image-field image-uploadable" id="imageField2" ondrop="drop(event, this)" ondragover="allowDrop(event)" onclick="selectImage(this)">
+					<p>Drag and drop <span class="box-green">Green</span> channel here</p>
+				</div>
+				<div class="image-field image-uploadable" id="imageField3" ondrop="drop(event, this)" ondragover="allowDrop(event)" onclick="selectImage(this)">
+					<p>Drag and drop <span class="box-blue">Blue</span> channel here</p>
+				</div>
+				<div class="image-field image-uploadable" id="imageField4" ondrop="drop(event, this)" ondragover="allowDrop(event)" onclick="selectImage(this)">
+					<p>Drag and drop <span class="box-alpha">Alpha</span> channel here</p>
+				</div>
+			</div>
+			
+			<button disabled="" class="button" id="generateButton" onclick="processImages()">Generate</button>
+			
+			<div class="image-fields section">
+				<div class="image-field" id="imageFieldOutput">
+					<canvas id="mappedCanvas"></canvas>
+				</div>
+			</div>
+        </div>
+		<div class="card">
+			<p>This utility is in very early stages and I'm not a font-end developer, so if you have suggestions/feature requests, notice any bugs, or would like to improve upon it, please <a target="_blank" href="https://github.com/djm1176/TextureChannelPacker/issues">submit an issue</a> or <a target="_blank" href="https://github.com/djm1176/TextureChannelPacker/pulls">submit a pull request</a> on GitHub!</p>
+		</div>
+    </div>
+	
+    <script src="scripts.js"></script>
+</body>
+</html>
